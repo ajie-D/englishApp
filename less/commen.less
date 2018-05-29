@@ -1,0 +1,86 @@
+@charset"utf-8";
+
+@font-size-base: 75;
+
+// tapcolor
+.setTapColor(@c:rgba(0,0,0,0)) {
+    -webkit-tap-highlight-color: @c;
+}
+
+//user action
+.no_select() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+//font-size
+.px2px(@name, @px){
+    @{name}: round(@px / 2) * 1px;
+    // for 魔镜
+    [data-dpr="1.5"] & {
+        @{name}: round(@px * 1.5 / 2) * 1px;
+    }
+    [data-dpr="2"] & {
+        @{name}: @px * 1px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        @{name}: round(@px * 2.5 / 2) * 1px;
+    }
+    // for С note
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        @{name}: round(@px / 2 * 3) * 1px
+    }
+    // for note4
+    [data-dpr="4"] & {
+        @{name}: @px * 2px;
+    }
+}
+
+//devide
+.father-box(){
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    display: -webkit-box;
+    -webkit-box-sizing:border-box;
+    box-sizing: border-box;
+}
+.child-box(){
+    -webkit-box-flex:1;
+    box-flex:1;
+    text-align: center;
+}
+//arrown
+.arrown(){
+    display: inline-block;
+    width:0.2rem;
+    height:0.2rem;
+    top: 50%;
+    margin-top: -0.2rem;
+    margin-left:0.36rem;
+    border-top: #cccccc 4px solid;
+    border-left: #cccccc 4px solid;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+}
+//mask-layer
+.mask-layer(){
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background:rgb(0,0,0);
+    opacity: 0.6;
+    z-index: 99;
+}
